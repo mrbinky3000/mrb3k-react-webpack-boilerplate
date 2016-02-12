@@ -1,6 +1,6 @@
 {
   "name": "mrb3k-react-webpack-boilerplate",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A starting point for React single page applications",
   "main": "index.js",
   "scripts": {
