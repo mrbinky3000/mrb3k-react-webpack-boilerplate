@@ -1,9 +1,9 @@
-import './main.css';
+import './main.scss';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/App.jsx';
+import HelloWorld from './components/HelloWorld/HelloWorld.jsx';
 
 
 
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<HelloWorld />, document.getElementById('app'));

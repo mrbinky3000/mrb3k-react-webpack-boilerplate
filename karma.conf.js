@@ -28,7 +28,7 @@ module.exports = function karmaConfig(config) {
 			'node_modules/phantomjs-polyfill/bind-polyfill.js' ,
 
 			// Grab all files in the tests directory that contain _test.
-			'tests/**/*_test.*'
+			'app/**/*_test.*'
 		],
 
 		preprocessors : {
@@ -36,7 +36,7 @@ module.exports = function karmaConfig(config) {
 			// Reference: http://webpack.github.io/docs/testing.html
 			// Reference: https://github.com/webpack/karma-webpack
 			// Convert files with webpack and load sourcemaps
-			'tests/**/*_test.*' : [ 'webpack' , 'sourcemap' ]
+			'app/**/*_test.*' : [ 'webpack' , 'sourcemap' ]
 
 		},
 
@@ -56,7 +56,7 @@ module.exports = function karmaConfig(config) {
 		},
 
 		// Test webpack config
-		webpack : require ( './webpack.config' ),
+		webpack : require ( './webpack.config.js/index.js' ),
 
 		// Hide webpack build information from output
 		webpackMiddleware: {
