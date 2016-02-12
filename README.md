@@ -1,4 +1,4 @@
-![dependencies](https://david-dm.org/mrbinky3000/mrb3k-react-webpack-boilerplate.svg "Dependencies")
+![dependencies](https://david-dm.org/mrbinky3000/mrb3k-react-webpack-boilerplate.svg "Dependencies") [![devDependency Status](https://david-dm.org/alanshaw/david/dev-status.svg)](https://david-dm.org/alanshaw/david#info=devDependencies)
 
 # React SPA Boiler Plate
 This is a starting point for my React Single Page Applications.  Many thanks to the book SurviveJS - Webpack and React by Juho Vepsäläinen.
