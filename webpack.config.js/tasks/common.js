@@ -40,7 +40,7 @@ module.exports = {
 	plugins: [
 		new HtmlWebpackPlugin({
 			template: 'node_modules/html-webpack-template/index.ejs',
-			title: 'Kanban app',
+			title: 'Your App Title Goes Here',
 			appMountId: 'app',
 			inject: false
 		})
