@@ -22,16 +22,6 @@ module.exports = {
 		host: process.env.HOST,
 		port: process.env.PORT
 	},
-	module: {
-		loaders: [
-			//Define development specific CSS setup
-			{
-				test: /\.s{0,1}css$/,
-				loaders: ['style', 'css', 'sass'],
-				include: PATHS.app
-			}
-		]
-	},
 	plugins: [
 		new webpack.HotModuleReplacementPlugin()
 	]

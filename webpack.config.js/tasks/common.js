@@ -1,6 +1,6 @@
 const PATHS = require('../lib/paths')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-
+const autoprefixer = require('autoprefixer');
 
 module.exports = {
 	// Entry accepts a path or an object of entries
@@ -34,8 +34,23 @@ module.exports = {
 				// more custom, pass a path to it.  I.e. , babel?cacheDirectory=<path>
 				loaders: ['babel?cacheDirectory'],
 				include: PATHS.app
+			},
+			// styles
+			{
+				test: /\.s{0,1}css$/,
+				loaders: ['style', 'css', 'postcss', 'sass'],
+				include: PATHS.app
+			},
+			// json files
+			{
+				test: /\.json$/,
+				loaders: ['json-loader'],
+				inlude: PATHS.app
 			}
 		]
+	},
+	postcss: function() {
+		return [autoprefixer];
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
