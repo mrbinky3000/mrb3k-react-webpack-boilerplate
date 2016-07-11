@@ -2,17 +2,16 @@ import React from 'react';
 
 class HelloWorld extends React.Component {
 
-	constructor(props) {
-		super(props);
+  constructor() {
+    super();
+    this.message = 'Hello World!';
+  }
 
-		this.message = 'Hello World!';
-	}
-
-	render() {
-		return(
-			<h1>{this.message}</h1>
-		);
-	}
+  render() {
+    return (
+      <h1>{this.message}</h1>
+    );
+  }
 
 }
 
