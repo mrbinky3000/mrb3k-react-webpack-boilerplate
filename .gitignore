@@ -6,6 +6,9 @@ npm-debug.log*
 #babel cache
 .babel-cache
 
+#ignore webpack generated stats file
+stats.json
+
 # Runtime data
 pids
 *.pid
