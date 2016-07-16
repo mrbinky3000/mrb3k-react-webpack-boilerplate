@@ -1,5 +1,8 @@
 module.exports = function jsonLoader(paths) {
   return ({
+    resolve: {
+      extensions: ['.json'],
+    },
     module: {
       loaders: [
         {

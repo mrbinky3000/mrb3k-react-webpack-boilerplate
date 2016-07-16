@@ -4,7 +4,6 @@
 		"react",
 	],
 	"plugins": [
-		"typecheck",
 		"array-includes",
 		"syntax-class-properties",
 		"syntax-decorators",

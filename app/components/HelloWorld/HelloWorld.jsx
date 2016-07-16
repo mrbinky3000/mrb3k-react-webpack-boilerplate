@@ -4,12 +4,14 @@ class HelloWorld extends React.Component {
 
   constructor() {
     super();
-    this.message = 'Hello World!';
+    this.state = {
+      message: 'Hello World!',
+    };
   }
 
   render() {
     return (
-      <h1>{this.message}</h1>
+      <h1>{this.state.message}</h1>
     );
   }
 

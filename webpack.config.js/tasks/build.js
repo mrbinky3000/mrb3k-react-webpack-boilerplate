@@ -2,8 +2,11 @@ const PATHS = require('../lib/paths');
 const Clean = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const webpack = require('webpack');
+const extractBundle = require('../lib/part-extract-bundle');
+const pkg = require('../../package.json');
+const merge = require('webpack-merge');
 
-module.exports = {
+const config = {
   output: {
     path: PATHS.build,
     filename: '[name].[chunkhash].js',
@@ -17,16 +20,14 @@ module.exports = {
       root: process.cwd(),
     }),
 
-    new webpack.optimize.OccurrenceOrderPlugin(true),
+    // OccurrenceOrderPlugin seems to cause issues when extracted
+    // https://github.com/webpack/webpack/issues/959
+    // new webpack.optimize.OccurrenceOrderPlugin(true),
+
     new webpack.optimize.DedupePlugin(),
 
     // output extracted CSS to a file
     new ExtractTextPlugin('[name].[id].[hash:5].css'),
-
-    // Extract vendor and manifest files
-    new webpack.optimize.CommonsChunkPlugin({
-      names: ['vendor', 'manifest'],
-    }),
 
     // Setting DefinePlugin affects React library size!
     new webpack.DefinePlugin({
@@ -45,3 +46,12 @@ module.exports = {
     }),
   ],
 };
+
+module.exports = merge(
+  config,
+  extractBundle({
+    name: 'vendor',
+    // load all dependencies into the vendor chunk.
+    entries: Object.keys(pkg.dependencies),
+  })
+);

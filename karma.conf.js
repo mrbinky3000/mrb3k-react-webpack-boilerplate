@@ -1,58 +1,44 @@
-// Reference: http://karma-runner.github.io/0.13/config/configuration-file.html
 module.exports = function karmaConfig(config) {
   config.set({
-
-    frameworks: [
-      // Reference: https://github.com/karma-runner/karma-mocha
-      // Set framework to mocha
-      'mocha',
-    ],
-
-    reporters: [
-      // Reference: https://github.com/mlex/karma-spec-reporter
-      // Set reporter to print detailed results to console
-      'spec',
-
-      // Reference: https://github.com/karma-runner/karma-coverage
-      // Output code coverage files
-      'coverage',
-    ],
-
+    basePath: '',
+    frameworks: ['jasmine'],
     files: [
-      // Reference: https://www.npmjs.com/package/phantomjs-polyfill
-      // Needed because React.js requires bind and phantomjs does not support it
-      'node_modules/phantomjs-polyfill/bind-polyfill.js',
-
-      // Grab all files in the tests directory that contain _test.
-      'app/**/*_test.*',
+      'tests/**/*.jsx',
     ],
 
     preprocessors: {
-      // Reference: http://webpack.github.io/docs/testing.html
-      // Reference: https://github.com/webpack/karma-webpack
-      // Convert files with webpack and load sourcemaps
-      'app/**/*_test.*': ['webpack', 'sourcemap'],
+      // add webpack as preprocessor
+      'app/**/*.jsx': ['webpack', 'sourcemap'],
+      'tests/**/*.jsx': ['webpack', 'sourcemap'],
     },
 
-    browsers: [
-      // Run tests using PhantomJS
-      'PhantomJS',
-    ],
-
-    singleRun: true,
-
-    // Configure code coverage reporter
-    coverageReporter: {
-      dir: 'build/coverage/',
-      type: 'html',
-    },
-
-    // Test webpack config
     webpack: require('./webpack.config.js/index.js'),
 
-    // Hide webpack build information from output
-    webpackMiddleware: {
+    webpackServer: {
+      // please don't spam the console when running in karma!
       noInfo: true,
     },
+
+    // plugins: [
+    //   'karma-webpack',
+    //   'karma-jasmine',
+    //   'karma-sourcemap-loader',
+    //   'karma-chrome-launcher',
+    //   'karma-phantomjs-launcher',
+    // ],
+
+    // babelPreprocessor: {
+    //   options: {
+    //     presets: ['es2015', 'react'],
+    //   },
+    // },
+
+    reporters: ['progress'],
+    port: 9876,
+    colors: true,
+    logLevel: config.LOG_INFO,
+    autoWatch: true,
+    browsers: ['Chrome'],
+    singleRun: false,
   });
 };

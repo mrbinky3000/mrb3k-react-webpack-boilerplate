@@ -7,6 +7,9 @@ const extractCSS = new ExtractTextPlugin('[name].[id].[hash:5].css');
 
 module.exports = function scssLoader(paths) {
   return ({
+    resolve: {
+      extensions: ['.scss'],
+    },
     module: {
       loaders: [
         {

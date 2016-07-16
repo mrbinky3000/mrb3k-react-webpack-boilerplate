@@ -1,5 +1,8 @@
 module.exports = function jsxLoader(path, excludePath) {
   return ({
+    resolve: {
+      extensions: ['.js', '.jsx'],
+    },
     module: {
       loaders: [
         // Set up jsx. This accepts js too thanks to RegExp

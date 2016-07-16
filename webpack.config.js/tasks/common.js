@@ -12,7 +12,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const common = {
   resolve: {
-    extensions: ['', '.js', '.jsx', '.scss', '.svg'],
+    extensions: [''],
 
     // note: ESLint can't figure out root and aliases, so turn off import/no-unresolved in .eslintrc
     root: [PATHS.root],
@@ -27,6 +27,15 @@ const common = {
       rootdir: PATHS.root,
       components: PATHS.components,
     },
+  },
+
+  // Some project dependencies have an issue when being extracted into a vendor chunk.
+  // this corrects a common bug.
+  // https://github.com/josephsavona/valuable/issues/9
+  // https://github.com/pugjs/pug-loader/issues/8#issuecomment-55568520
+  // and others.
+  node: {
+    fs: "empty"
   },
 
   entry: {
@@ -56,9 +65,9 @@ const common = {
 
 module.exports = merge(
   common,
-  jsxLoader(PATHS.app, `${process.cwd()}/node_modules`),
+  jsxLoader([PATHS.app, PATHS.tests], `${process.cwd()}/node_modules`),
   scssLoader(PATHS.app),
-  jsonLoader(PATHS.app),
+  jsonLoader([PATHS.app, PATHS.tests]),
   svgLoader(PATHS.app),
   woffLoader(PATHS.app),
   ttfLoader(PATHS.app),

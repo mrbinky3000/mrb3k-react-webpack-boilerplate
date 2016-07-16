@@ -1,28 +1,23 @@
 const PATHS = require('../lib/paths');
+const merge = require('webpack-merge');
 
-module.exports = {
+const test = {
+  resolve: {
+    extensions: ['', '.js', '.jsx', '.scss', '.svg', '.json'],
+    root: [PATHS.root],
+    alias: {
+      rootdir: PATHS.root,
+      components: PATHS.components,
+    },
+  },
   entry: {}, // karma will set this
   output: {}, // karma will set this
   devtool: 'inline-source-map',
-  resolve: {
-    alias: {
-      app: PATHS.app,
-    },
-  },
-  module: {
-    preLoaders: [
-      {
-        test: /\.jsx?$/,
-        loaders: ['isparta'],
-        include: PATHS.app,
-      },
-    ],
-    loaders: [
-      {
-        test: /\.jsx?$/,
-        loaders: ['babel?cacheDirectory'],
-        include: PATHS.app,
-      },
-    ],
+  externals: {
+    'react/addons': true,
+    'react/lib/ExecutionEnvironment': true,
+    'react/lib/ReactContext': true,
   },
 };
+
+module.exports = test;

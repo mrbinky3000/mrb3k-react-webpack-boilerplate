@@ -11,9 +11,8 @@ process.env.BABEL_ENV = TARGET;
 
 switch (TARGET) {
   case 'test':
-  case 'tdd':
-    config = merge(common, test);
-    module.exports = validate(config);
+  case 'test:watch':
+    module.exports = validate(test);
     break;
   case 'build':
   case 'stats':

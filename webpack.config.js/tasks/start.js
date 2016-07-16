@@ -3,7 +3,7 @@ const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-module.exports = {
+const start = {
   devtool: 'source-map',
   devServer: {
     // contentBase -- It works without a content base config option so I think the default value is
@@ -56,3 +56,5 @@ module.exports = {
     ],
   },
 };
+
+module.exports = start;

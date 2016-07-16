@@ -1,6 +1,11 @@
-import './main.css';
+import '../main.scss';
 import React from 'react';
-import ReactDOM from 'react-dom';
-import App from 'components/App.jsx';
 
-ReactDOM.render(<App />, document.getElementById('app'));
+import HelloWorld from 'components/HelloWorld/HelloWorld.jsx';
+import HelloWorldUncoverd from 'components/HelloWorldUncovered/HelloWorldUncovered.jsx';
+
+export default () =>
+  <div>
+    <HelloWorld />
+    <HelloWorldUncoverd />
+  </div>;

@@ -5,4 +5,6 @@ module.exports = {
   components: path.join(basedir, 'app', 'components'),
   build: path.join(basedir, 'build'),
   root: basedir,
+  nodeModules: path.join(basedir, 'node_modules'),
+  tests: path.join(basedir, 'tests'),
 };
