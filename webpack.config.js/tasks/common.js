@@ -1,6 +1,7 @@
 const path = require('path');
 const PATHS = require('../lib/paths');
 const merge = require('webpack-merge');
+const resolve = require('../lib/resolve');
 const jsxLoader = require('../lib/loader-jsx');
 const scssLoader = require('../lib/loader-scss');
 const jsonLoader = require('../lib/loader-json');
@@ -11,23 +12,6 @@ const eotLoader = require('../lib/loader-eot');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const common = {
-  resolve: {
-    extensions: [''],
-
-    // note: ESLint can't figure out root and aliases, so turn off import/no-unresolved in .eslintrc
-    root: [PATHS.root],
-
-		// you can use these aliases to namespace your import statements.  Add more here if you need
-		// them.  For example: you have a file located at 'things/transport/cars/corvette.js'
-		// and you want to shorten your import statement while providing a useful namespace, you can
-		// set an alias here.  So an alias to 'cars' means you can just write
-		// import corvette from 'cars/corvette.js';
-		// alias name: ABSOLUTE PATH
-    alias: {
-      rootdir: PATHS.root,
-      components: PATHS.components,
-    },
-  },
 
   // Some project dependencies have an issue when being extracted into a vendor chunk.
   // this corrects a common bug.
@@ -65,6 +49,7 @@ const common = {
 
 module.exports = merge(
   common,
+  resolve(),
   jsxLoader([PATHS.app, PATHS.tests], `${process.cwd()}/node_modules`),
   scssLoader(PATHS.app),
   jsonLoader([PATHS.app, PATHS.tests]),
