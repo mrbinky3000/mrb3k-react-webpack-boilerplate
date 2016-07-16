@@ -3,13 +3,13 @@ module.exports = function karmaConfig(config) {
     basePath: '',
     frameworks: ['jasmine'],
     files: [
-      'tests/**/*.jsx',
+      'tests/index.js',
     ],
 
     preprocessors: {
       // add webpack as preprocessor
       'app/**/*.jsx': ['webpack', 'sourcemap'],
-      'tests/**/*.jsx': ['webpack', 'sourcemap'],
+      'tests/index.js': ['webpack', 'sourcemap'],
     },
 
     webpack: require('./webpack.config.js/index.js'),
@@ -19,6 +19,7 @@ module.exports = function karmaConfig(config) {
       noInfo: true,
     },
 
+    // Deprecated: Karma autoloads anything that starts with "karma-" as a plugin
     // plugins: [
     //   'karma-webpack',
     //   'karma-jasmine',
@@ -27,13 +28,21 @@ module.exports = function karmaConfig(config) {
     //   'karma-phantomjs-launcher',
     // ],
 
+    // Deprecated: use .babel.rc instead
     // babelPreprocessor: {
     //   options: {
     //     presets: ['es2015', 'react'],
     //   },
     // },
 
-    reporters: ['progress'],
+    coverageReporter: {
+        type: 'text'
+    },
+
+    reporters: [
+      'progress',
+      'coverage',
+    ],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,

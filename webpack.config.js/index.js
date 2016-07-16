@@ -3,6 +3,7 @@ const TARGET = process.env.npm_lifecycle_event;
 const common = require('./tasks/common');
 const start = require('./tasks/start');
 const test = require('./tasks/test');
+const coverage = require('./tasks/coverage');
 const build = require('./tasks/build');
 const validate = require('webpack-validator');
 let config = {};
@@ -13,6 +14,9 @@ switch (TARGET) {
   case 'test':
   case 'test:watch':
     module.exports = validate(test);
+    break;
+  case 'coverage':
+    module.exports = validate(coverage);
     break;
   case 'build':
   case 'stats':

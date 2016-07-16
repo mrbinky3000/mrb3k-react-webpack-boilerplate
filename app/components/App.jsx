@@ -1,8 +1,8 @@
 import '../main.scss';
 import React from 'react';
 
-import HelloWorld from 'components/HelloWorld/HelloWorld.jsx';
-import HelloWorldUncoverd from 'components/HelloWorldUncovered/HelloWorldUncovered.jsx';
+import HelloWorld from 'components/HelloWorld';
+import HelloWorldUncoverd from 'components/HelloWorldUncovered';
 
 export default () =>
   <div>

@@ -8,6 +8,28 @@ const test = {
   entry: {}, // karma will set this
   output: {}, // karma will set this
   devtool: 'inline-source-map',
+  module: {
+    preLoaders: [
+        // transpile all files except testing sources with babel as usual
+        {
+          test: /\.jsx?$/,
+          exclude: [
+            PATHS.components,
+            PATHS.nodeModules,
+          ],
+          loader: 'babel',
+          query: {
+            cacheDirectory: './.babel-cache',
+          },
+        },
+        // transpile and instrument only testing sources with isparta
+        {
+          test: /\.jsx?$/,
+          include: PATHS.components,
+          loader: 'isparta',
+        }
+    ],
+  },
   externals: {
     'react/addons': true,
     'react/lib/ExecutionEnvironment': true,
