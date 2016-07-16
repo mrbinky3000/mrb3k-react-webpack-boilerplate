@@ -3,6 +3,9 @@ logs
 *.log
 npm-debug.log*
 
+#babel cache
+.babel-cache
+
 # Runtime data
 pids
 *.pid
