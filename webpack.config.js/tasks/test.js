@@ -1,8 +1,13 @@
 const PATHS = require('../lib/paths');
 const merge = require('webpack-merge');
 const resolve = require('../lib/resolve');
-const loaderJson = require('../lib/loader-json');
-const loaderJsxTesting = require('../lib/loader-jsx-testing');
+const jsonLoader = require('../lib/loader-json');
+const jsxLoader = require('../lib/loader-jsx');
+const svgLoader = require('../lib/loader-svg');
+const scssLoader = require('../lib/loader-scss');
+const woffLoader = require('../lib/loader-woff');
+const ttfLoader = require('../lib/loader-ttf');
+const eotLoader = require('../lib/loader-eot');
 
 const test = {
   entry: {}, // karma will set this
@@ -40,6 +45,11 @@ const test = {
 module.exports = merge(
   test,
   resolve(),
-  loaderJsxTesting(),
-  loaderJson()
+  jsxLoader([PATHS.app, PATHS.tests], PATHS.nodeModules),
+  jsonLoader(),
+  scssLoader(PATHS.app),
+  svgLoader(PATHS.app),
+  woffLoader(PATHS.app),
+  ttfLoader(PATHS.app),
+  eotLoader(PATHS.app)
 );
