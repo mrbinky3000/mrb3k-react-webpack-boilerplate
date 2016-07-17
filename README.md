@@ -23,10 +23,10 @@ Uses Babel to polyfill tomorrow's ES6 features for use in today's browsers.  Con
 ## Scripts
 
 ### `npm run test`
-Use Karma, PhantomJS, and Expect to execute any file in the app directory that ends in _test.jsx  Generates coverage reports using Isparta-Instrumenter.
+Run tests using Karma and Enzyme (created by the folks at Air B-n-B) Generates code coverage reports using Isparta-Instrumenter.
 
-### `npm run tdd`
-Run the same tests as `npm run test` but continues to watch your project and run tests after each save.
+### `npm run test:watch`
+Run the same tests as `npm run test` but continues to watch your project and run tests after each update to a test file.
 
 ### `npm run lint`
 Lints the project.  Can be customized by updating .eslintrc and .eslintignore
@@ -42,8 +42,3 @@ Capture timing information for each module. It generates stats that can be analy
 
 ### `npm run deploy`
 Publishes your app to your repository's github page.  More information on how to find and use your github page here: https://pages.github.com/
-
-### `npm run flow`
-Uses the static type checker Flow, to test any file with `/* @flow */` in the first line.  The goal of Flow is to find errors in JavaScript code with little programmer effort. Flow relies heavily on type inference to find type errors even when the program has not been annotated - it precisely tracks the types of variables as they flow through the program.  More info: http://flowtype.org/
-
-
