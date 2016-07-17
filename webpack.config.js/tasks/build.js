@@ -20,7 +20,10 @@ const config = {
       root: process.cwd(),
     }),
 
-    // OccurrenceOrderPlugin seems to cause issues when extracted
+    // OccurrenceOrderPlugin seems to cause issues with CommonsChunkPlugin.
+    // For now, these two options seem incompatible.  After doing tests, there really
+    // wasn't much gained on small projects with this option anyway.  You might see
+    // a difference on larger ones, perhaps?
     // https://github.com/webpack/webpack/issues/959
     // new webpack.optimize.OccurrenceOrderPlugin(true),
 
