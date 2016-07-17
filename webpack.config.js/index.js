@@ -15,10 +15,15 @@ switch (TARGET) {
     module.exports = validate(test);
     break;
   case 'build':
-  case 'stats':
     config = merge(common, build);
     module.exports = validate(config);
     break;
+  case 'stats':
+    config = merge(common, build);
+    module.exports = validate(config, {
+      quiet: true,
+    });
+    break
   default:
     config = merge(common, start);
     module.exports = validate(config);
