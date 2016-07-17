@@ -1,3 +1,6 @@
+// Don't delete me.  I'm the entry point for tests used by Karma.  Without me your coverage reports
+// will most likely always show 100% coverage, or 0% coverage.
+
 // require all `test/components/**/index.js`
 const testsContext = require.context('.', true, /\.jsx$/);
 

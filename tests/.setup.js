@@ -1,3 +1,5 @@
+// I'm used by Enzyme, a Testing framework.  Keep me here.
+
 require('babel-register')();
 
 var jsdom = require('jsdom').jsdom;
