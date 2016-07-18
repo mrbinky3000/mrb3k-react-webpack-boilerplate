@@ -46,11 +46,11 @@ const start = {
   ],
 
   module: {
+    // lint the project prior to building the bundle.
     preLoaders: [
       {
         test: /\.jsx?$/,
         loaders: ['eslint'],
-        // define an include so we check just the files we need
         include: PATHS.app,
       },
     ],
