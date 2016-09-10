@@ -13,6 +13,7 @@
 		"transform-decorators-legacy",
 		"transform-object-assign",
 		"transform-object-rest-spread",
+		"transform-react-jsx-img-import",
 		"./webpack.config.js/lib/babel-jsx-classnames"
 	],
 	"env": {

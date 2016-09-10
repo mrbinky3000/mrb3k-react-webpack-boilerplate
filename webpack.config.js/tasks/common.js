@@ -9,6 +9,8 @@ const svgLoader = require('../lib/loader-svg');
 const woffLoader = require('../lib/loader-woff');
 const ttfLoader = require('../lib/loader-ttf');
 const eotLoader = require('../lib/loader-eot');
+const pngLoader = require('../lib/loader-png');
+const jpgLoader = require('../lib/loader-jpg');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const common = {
@@ -56,5 +58,7 @@ module.exports = merge(
   svgLoader(PATHS.app),
   woffLoader(PATHS.app),
   ttfLoader(PATHS.app),
-  eotLoader(PATHS.app)
+  eotLoader(PATHS.app),
+  pngLoader(PATHS.app, 25000),
+  jpgLoader(PATHS.app, 25000)
 );
