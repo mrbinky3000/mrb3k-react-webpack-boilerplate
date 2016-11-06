@@ -12,17 +12,26 @@ You really only need to know [React](https://facebook.github.io/react/) to get s
 
 
 ## Getting Started
-- make your own blank repo on github.  Do not add Readme, .gitignore or liscence files to avoid conflicts
+Here's how to use this SPA boiler plate for your next project.  First, answer this question, are you
+going to use github as a repo for your code?
+
+### Using Github as a Repo for YOUR project
+- Make your own blank repo on Github via https://github.com/new and DO NOT add Readme, .gitignore or license files to avoid conflicts
 - clone this repository to your local machine
-- cd to that directory in a terminal
+- change the name of the folder from `mrb3k-react-webpack-boilerplate` to YOUR github project name.
+- in a terminal, cd to the directory you just renamed
 - use git to remove my repository as the remote destination https://help.github.com/articles/removing-a-remote/
 - use git to add your repo as the new remote https://help.github.com/articles/adding-a-remote/
-- git add .
-- git commit -m "boiler plate initialized"
-- git push origin master
-- npm install
-
+- `git add -A`
+- `git commit -m "boiler plate initialized"`
+- `git push origin master`
+- `npm install`
 Take it from there.
+
+### Not Using a Repo?
+- Copy this repo to your computer.
+- `npm install`
+Start workin'
 
 ## ES6 Ready
 Uses [Babel](https://babeljs.io/) to polyfill tomorrow's ES6 features for use in today's browsers.  Configure in .babelrc
