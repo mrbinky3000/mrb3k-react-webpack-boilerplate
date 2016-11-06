@@ -1,9 +1,10 @@
+"use strict";
+
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const getCssIdentName = require('../lib/cssIdentName.js');
 const autoprefixer = require('autoprefixer');
 const combineLoaders = require('webpack-combine-loaders');
-
 const extractCSS = new ExtractTextPlugin('[name].[id].[hash:5].css');
+const getCssIdentName = require('../lib/cssIdentName.js');
 
 module.exports = function scssLoader(paths) {
   return ({

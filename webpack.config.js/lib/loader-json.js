@@ -1,3 +1,5 @@
+"use strict";
+
 module.exports = function jsonLoader(paths) {
   return ({
     resolve: {

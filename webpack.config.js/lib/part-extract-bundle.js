@@ -1,3 +1,5 @@
+"use strict";
+
 const webpack = require('webpack');
 
 module.exports = function extractBundle(options) {
@@ -12,6 +14,6 @@ module.exports = function extractBundle(options) {
       new webpack.optimize.CommonsChunkPlugin({
         names: [options.name, 'manifest'],
       }),
-    ]
-  }
-}
+    ],
+  };
+};

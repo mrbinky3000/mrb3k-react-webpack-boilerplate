@@ -1,3 +1,5 @@
+"use strict";
+
 const combineLoaders = require('webpack-combine-loaders');
 
 module.exports = function svgLoader(paths) {

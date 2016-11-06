@@ -1,3 +1,5 @@
+"use strict";
+
 module.exports = function jsxLoader(path, excludePath) {
   return ({
     resolve: {

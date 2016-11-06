@@ -1,3 +1,5 @@
+"use strict";
+
 const merge = require('webpack-merge');
 const TARGET = process.env.npm_lifecycle_event;
 const common = require('./tasks/common');

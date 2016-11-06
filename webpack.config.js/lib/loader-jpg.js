@@ -1,3 +1,5 @@
+"use strict";
+
 module.exports = function pngLoader(path, limit) {
   return ({
     module: {
@@ -9,7 +11,7 @@ module.exports = function pngLoader(path, limit) {
             limit: limit,
           },
           include: path,
-        }
+        },
       ],
     },
   });
