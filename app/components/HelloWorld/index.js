@@ -1,3 +1,3 @@
-import HelloWorld from './HelloWorld.jsx';
+import HelloWorld from './HelloWorld';
 
 export default HelloWorld;

@@ -1,6 +1,6 @@
 import React from 'react';
-import { shallow, mount, render } from 'enzyme';
-import HelloWorld from 'components/HelloWorld/HelloWorld.jsx';
+import { render } from 'enzyme';
+import HelloWorld from '../app/components/HelloWorld';
 
 describe('<HelloWorld>', () => {
   it('should render a H1 tag', () => {
