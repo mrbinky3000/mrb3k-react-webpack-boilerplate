@@ -5,7 +5,7 @@ const combineLoaders = require('webpack-combine-loaders');
 module.exports = function svgLoader(paths) {
   return ({
     resolve: {
-      extensions: ['.svg',]
+      extensions: ['.svg']
     },
     module: {
       loaders: [

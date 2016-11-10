@@ -11,6 +11,7 @@ const ttfLoader = require('../lib/loader-ttf');
 const eotLoader = require('../lib/loader-eot');
 const pngLoader = require('../lib/loader-png');
 const jpgLoader = require('../lib/loader-jpg');
+const gifLoader = require('../lib/loader-gif');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const common = {
@@ -43,7 +44,7 @@ const common = {
       appMountId: 'app',
       inject: false,
       template: 'templates/default.ejs',
-      title: 'New Tab',
+      title: 'My App',
     }),
   ],
 };
@@ -59,6 +60,7 @@ module.exports = merge(
   woffLoader(PATHS.app),
   ttfLoader(PATHS.app),
   eotLoader(PATHS.app),
-  pngLoader(PATHS.app, 25000),
-  jpgLoader(PATHS.app, 25000)
+  pngLoader(PATHS.app, 2500),
+  jpgLoader(PATHS.app, 2500),
+  gifLoader(PATHS.app, 2500)
 );

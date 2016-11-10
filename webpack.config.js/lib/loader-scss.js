@@ -14,7 +14,7 @@ module.exports = function scssLoader(paths) {
     module: {
       loaders: [
         {
-          test: /\.scss?$/,
+          test: /\.scss$/,
           loader: extractCSS.extract('style-loader', combineLoaders(
             [
               {

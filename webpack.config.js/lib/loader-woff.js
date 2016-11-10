@@ -6,7 +6,7 @@ module.exports = function woffLoader(path, limit) {
       loaders: [
         // woff files
         {
-          test: /\.woff$/,
+          test: /\.woff2?$/,
           loader: 'url',
           query: {
             // url loader will inline anything smaller than limit bytes below.
@@ -16,7 +16,7 @@ module.exports = function woffLoader(path, limit) {
             mimetype: 'application/font-woff',
             // if bigger than the limit, the following properties are passed to file-loader
             // and file-loader does the loading instead.
-            name: 'font/[hash].[ext]',
+            name: 'assets/fonts/[hash:8].[ext]',
           },
           include: path,
         },

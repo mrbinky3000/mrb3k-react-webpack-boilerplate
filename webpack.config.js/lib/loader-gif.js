@@ -1,18 +1,18 @@
 "use strict";
 
-module.exports = function pngLoader(path, limit) {
+module.exports = function gifLoader(path, limit) {
   return ({
     module: {
       loaders: [
         {
-          test: /\.png$/,
+          test: /\.gif$/,
           loader: 'url-loader',
           query: {
             limit: limit,
-            name: 'assets/images/[hash:8].[ext]',
+            name: 'assets/images/[name].[hash:8].[ext]',
           },
           include: path,
-        }
+        },
       ],
     },
   });

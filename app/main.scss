@@ -1,6 +1,15 @@
+@font-face {
+	font-family: 'Roboto';
+	src: url('./common_assets/fonts/Roboto-Regular.eot');
+	src: local('☺'),
+		url('./common_assets/fonts/Roboto-Regular.woff') format('woff'),
+		url('./common_assets/fonts/Roboto-Regular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
 body {
 	background: darken(green, 10%);
 	color: white;
-	font-family: sans-serif;
+	font-family: 'Roboto', sans-serif;
 }
-

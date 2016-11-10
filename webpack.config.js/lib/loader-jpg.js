@@ -9,6 +9,7 @@ module.exports = function pngLoader(path, limit) {
           loader: 'url-loader',
           query: {
             limit: limit,
+            name: 'assets/images/[name].[hash:8].[ext]',
           },
           include: path,
         },
