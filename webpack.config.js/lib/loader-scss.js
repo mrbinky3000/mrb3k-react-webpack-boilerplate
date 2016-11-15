@@ -15,8 +15,9 @@ module.exports = function scssLoader(paths) {
       loaders: [
         {
           test: /\.scss$/,
-          loader: extractCSS.extract('style-loader', combineLoaders(
-            [
+          loader: extractCSS.extract({
+            fallbackLoader: 'style-loader',
+            loader: combineLoaders([
               {
                 loader: 'css-loader',
                 query: {
@@ -39,7 +40,7 @@ module.exports = function scssLoader(paths) {
                 },
               },
             ])
-          ),
+          }),
           include: paths,
         },
       ],

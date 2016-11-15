@@ -40,8 +40,9 @@ const start = {
     }),
 
     // don't extract CSS when running the dev server (faster)
-    new ExtractTextPlugin('[name][hash:5].css', {
-      disable: true,
+    new ExtractTextPlugin({
+      filename: '[name][hash:5].css',
+      disable: true
     }),
   ],
 
