@@ -65,4 +65,10 @@ Many thanks to:
 - The book, [SurviveJS - Webpack](https://leanpub.com/survivejs-webpack), by Juho Vepsäläinen.
 - Frontend Masters course [Webpack Deep Dive](https://frontendmasters.com/courses/webpack/), by Kent C. Dodds.
 
+#Todo:
+- Might have to remove 'babel-plugin-transform-react-jsx-img-import' and import images by hand?  
+Tree shaking seems to remove all images references when this babel transformation is in use.  The
+images are extracted, but there is no src="" attribute for the image tags.   Tree shaking seems to
+think that the images are dead code.
+
 > Written with [StackEdit](https://stackedit.io/).

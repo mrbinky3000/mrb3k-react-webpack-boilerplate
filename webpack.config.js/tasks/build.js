@@ -45,11 +45,9 @@ const config = {
       sourceMap: true,
       compress: {
         collapse_vars: true,
-        dead_code: true, // tree shaking?
         drop_console: true,
         pure_getters: true,
         warnings: false,
-
       },
     }),
   ],
