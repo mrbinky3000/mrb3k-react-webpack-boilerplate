@@ -25,7 +25,10 @@ const config = {
     // wasn't much gained on small projects with this option anyway.  You might see
     // a difference on larger ones, perhaps?
     // https://github.com/webpack/webpack/issues/959
-    // new webpack.optimize.OccurrenceOrderPlugin(true),
+    //
+    // Since upgrading to webpack 2 beta, this seems to work again.
+    // This option is now on probation for now
+    new webpack.optimize.OccurrenceOrderPlugin(),
 
     new webpack.optimize.DedupePlugin(),
 
@@ -42,9 +45,11 @@ const config = {
       sourceMap: true,
       compress: {
         collapse_vars: true,
+        dead_code: true, // tree shaking?
         drop_console: true,
         pure_getters: true,
         warnings: false,
+
       },
     }),
   ],
