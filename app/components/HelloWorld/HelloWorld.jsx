@@ -26,7 +26,7 @@ class HelloWorld extends React.Component {
             <img src="./popeye.gif" width={100} height={100} alt="gif test" />
           </li>
           <li>
-            <MountainSvg width={100} height={100} alt="svg test"></MountainSvg>
+            <MountainSvg width={100} height={100} alt="svg test" />
           </li>
         </ul>
       </div>

@@ -7,10 +7,10 @@ const pkg = require('../../package.json');
 const merge = require('webpack-merge');
 
 const config = {
+  devtool: 'source-map',
   output: {
     path: PATHS.build,
-    filename: '[name].[chunkhash].js',
-    chunkFilename: '[chunkhash].js',
+    filename: '[name].[hash:5].js'
   },
 
   plugins: [

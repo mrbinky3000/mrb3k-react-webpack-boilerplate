@@ -6,6 +6,7 @@ const common = require('./tasks/common');
 const start = require('./tasks/start');
 const test = require('./tasks/test');
 const build = require('./tasks/build');
+const deploy = require('./tasks/deploy');
 const validate = require('webpack-validator');
 let config = {};
 
@@ -18,6 +19,10 @@ switch (TARGET) {
     break;
   case 'build':
     config = merge(common, build);
+    module.exports = validate(config);
+    break;
+  case 'deploy':
+    config = merge(common, deploy);
     module.exports = validate(config);
     break;
   case 'stats':

@@ -9,7 +9,8 @@
     "build": "webpack",
     "start": "webpack-dev-server",
     "stats": "webpack --profile --json > stats.json",
-    "deploy": "gh-pages -d build",
+    "deploy" : "webpack",
+    "postdeploy": "gh-pages -d build",
     "flow": "flow check",
     "lint": "eslint . --ext .js --ext .jsx"
   },
