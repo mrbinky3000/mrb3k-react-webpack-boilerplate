@@ -1,7 +1,7 @@
 {
 	"presets": [
-		"es2015",
-		"react",
+		["es2015", {"modules": false}],
+		"react"
 	],
 	"plugins": [
 		"array-includes",
@@ -19,23 +19,17 @@
 	"env": {
 		"test": {
 			"plugins": [
-				[
-					"__coverage__",
-					{
-						"only": "app/**/*.jsx",
-					}
-				]
+				["__coverage__", {"only": "app/**/*.jsx"}]
 			]
 		},
-		"production": {
-      "plugins": [
-        "transform-react-inline-elements",
-        "transform-remove-console",
-        "transform-property-literals",
+		"build": {
+			"plugins": [
+				"transform-remove-console",
+				"transform-property-literals",
         "transform-minify-booleans",
         "transform-merge-sibling-variables",
         "transform-member-expression-literals"
-      ]
-    }
+			]
+		}
 	}
 }
