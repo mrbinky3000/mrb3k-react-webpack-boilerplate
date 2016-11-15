@@ -17,6 +17,16 @@
 		"./webpack.config.js/lib/babel-jsx-classnames"
 	],
 	"env": {
+		"test": {
+			"plugins": [
+				[
+					"__coverage__",
+					{
+						"only": "app/**/*.jsx",
+					}
+				]
+			]
+		},
 		"production": {
       "plugins": [
         "transform-react-inline-elements",

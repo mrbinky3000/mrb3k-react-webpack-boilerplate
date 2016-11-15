@@ -9,12 +9,12 @@ module.exports = function karmaConfig(config) {
     preprocessors: {
       // add webpack as preprocessor
       'app/**/*.jsx': ['webpack', 'sourcemap'],
-      'tests/index.js': ['webpack', 'sourcemap'],
+      'tests/index.js': ['webpack'],
     },
 
     webpack: require('./webpack.config.js/index.js'),
 
-    webpackServer: {
+    webpackMiddleware: {
       // please don't spam the console when running in karma!
       noInfo: true,
     },
@@ -35,19 +35,23 @@ module.exports = function karmaConfig(config) {
     //   },
     // },
 
-    coverageReporter: {
-        type: 'text'
-    },
-
     reporters: [
       'progress',
       'coverage',
     ],
+    coverageReporter: {
+      reporters: [
+        {type: 'lcov', dir: 'coverage/', subdir: '.'},
+        {type: 'json', dir: 'coverage/', subdir: '.'},
+        {type: 'text'},
+      ],
+    },
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
     browsers: ['Chrome'],
     singleRun: false,
+    concurrency: Infinity
   });
 };

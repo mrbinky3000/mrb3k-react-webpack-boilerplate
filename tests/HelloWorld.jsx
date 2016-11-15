@@ -8,9 +8,9 @@ describe('<HelloWorld>', () => {
       render(<HelloWorld />).find('h1').length
     ).toBe(1);
   });
-  it('should say "Hello World!"', () => {
+  it('should say "Hello World!" inside of the H1 tag', () => {
     expect(
-      render(<HelloWorld />).text()
+      render(<HelloWorld />).find('h1').text()
     ).toBe('Hello World!');
   });
 });
