@@ -24,7 +24,7 @@ module.exports = function scssLoader(paths) {
                   modules: 1,
                   importLoaders: 2,
                   localIdentName: getCssIdentName(),
-                  sourceMap: false,
+                  sourceMap: true,
                 },
               },
               {
@@ -37,6 +37,7 @@ module.exports = function scssLoader(paths) {
                 loader: 'sass-loader',
                 query: {
                   includePaths: paths,
+                  sourceMap: true,
                 },
               },
             ])
