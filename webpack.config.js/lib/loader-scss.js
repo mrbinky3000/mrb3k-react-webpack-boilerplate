@@ -12,15 +12,15 @@ module.exports = function scssLoader(paths) {
       extensions: ['.scss'],
     },
     module: {
-      loaders: [
+      rules: [
         {
           test: /\.scss$/,
           loader: extractCSS.extract({
             fallbackLoader: 'style-loader',
-            loader: combineLoaders([
+            loader: [
               {
                 loader: 'css-loader',
-                query: {
+                options: {
                   modules: 1,
                   importLoaders: 2,
                   localIdentName: getCssIdentName(),
@@ -29,26 +29,29 @@ module.exports = function scssLoader(paths) {
               },
               {
                 loader: 'postcss-loader',
-                query: {
+                options: {
                   parser: 'postcss-scss',
+                  plugins: [
+                    autoprefixer
+                  ],
                 },
               },
               {
+                loader: 'resolve-url',
+              },
+              {
                 loader: 'sass-loader',
-                query: {
+                options: {
                   includePaths: paths,
                   sourceMap: true,
                 },
               },
-            ])
+            ],
           }),
           include: paths,
         },
       ],
     },
-    postcss: [
-      autoprefixer,
-    ],
     plugins: [
       extractCSS,
     ],

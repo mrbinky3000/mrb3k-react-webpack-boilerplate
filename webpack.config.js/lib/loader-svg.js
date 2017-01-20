@@ -1,26 +1,24 @@
 "use strict";
 
-const combineLoaders = require('webpack-combine-loaders');
-
 module.exports = function svgLoader(paths) {
   return ({
     resolve: {
       extensions: ['.svg']
     },
     module: {
-      loaders: [
+      rules: [
         {
           test: /\.svg$/,
-          loader: combineLoaders([
+          loader: [
             {
-              loader: 'babel',
+              loader: 'babel-loader',
             },
             {
-              loader: 'svg-react',
+              loader: 'svg-react-loader',
             },
             {
-              loader: 'string-replace',
-              query: {
+              loader: 'string-replace-loader',
+              options: {
                 // this is a bugfix because react complains about the xmlns attribute.  Its not
                 // a valid attribute according to react.  React devs also say it's not needed
                 // for svg.
@@ -28,7 +26,7 @@ module.exports = function svgLoader(paths) {
                 replace: '',
               },
             },
-          ]),
+          ],
           include: paths,
         },
       ],

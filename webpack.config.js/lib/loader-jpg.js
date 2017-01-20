@@ -3,11 +3,11 @@
 module.exports = function pngLoader(path, limit) {
   return ({
     module: {
-      loaders: [
+      rules: [
         {
           test: /\.jpg$/,
           loader: 'url-loader',
-          query: {
+          options: {
             limit: limit,
             name: 'assets/images/[name].[hash:8].[ext]',
           },

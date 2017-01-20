@@ -5,11 +5,12 @@ const PATHS = require('./paths');
 module.exports = function resolve() {
   return ({
     resolve: {
-      extensions: [''],
+      extensions: [],
 
       // note: ESLint can't figure out root and aliases, so turn off import/no-unresolved in
       // .eslintrc
-      root: [PATHS.root],
+      // modules: [PATHS.root],
+      modules: [PATHS.root, 'node_modules'],
 
       // you can use these aliases to namespace your import statements.  Add more here if you need
       // them.  For example: you have a file located at 'things/transport/cars/corvette.js'

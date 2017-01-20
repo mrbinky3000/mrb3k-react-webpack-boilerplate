@@ -20,17 +20,9 @@ const config = {
       root: process.cwd(),
     }),
 
-    // OccurrenceOrderPlugin seems to cause issues with CommonsChunkPlugin.
-    // For now, these two options seem incompatible.  After doing tests, there really
-    // wasn't much gained on small projects with this option anyway.  You might see
-    // a difference on larger ones, perhaps?
-    // https://github.com/webpack/webpack/issues/959
-    //
-    // Since upgrading to webpack 2 beta, this seems to work again.
-    // This option is now on probation for now
-    new webpack.optimize.OccurrenceOrderPlugin(),
+    // note: webpack.optimize.OccurrenceOrderPlugin is now loaded by default in Webpack 2
 
-    new webpack.optimize.DedupePlugin(),
+    // note: webpack.optimize.DedupePlugin() was removed from Webpack 2,
 
     // output extracted CSS to a file
     new ExtractTextPlugin('[name].[id].[hash:5].css'),

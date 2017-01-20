@@ -3,12 +3,12 @@
 module.exports = function eotLoader(path) {
   return ({
     module: {
-      loaders: [
+      rules: [
         // eot files
         {
           test: /\.eot$/,
-          loader: 'file',
-          query: {
+          loader: 'file-loader',
+          options: {
             name: 'assets/fonts/[name].[hash:8].[ext]',
           },
           include: path,

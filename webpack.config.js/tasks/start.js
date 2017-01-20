@@ -45,17 +45,6 @@ const start = {
       disable: true
     }),
   ],
-
-  module: {
-    // lint the project prior to building the bundle.
-    preLoaders: [
-      {
-        test: /\.jsx?$/,
-        loaders: ['eslint'],
-        include: PATHS.app,
-      },
-    ],
-  },
 };
 
 module.exports = start;

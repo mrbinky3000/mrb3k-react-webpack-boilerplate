@@ -3,12 +3,12 @@
 module.exports = function ttfLoader(path) {
   return ({
     module: {
-      loaders: [
+      rules: [
         // ttf files
         {
           test: /\.ttf$/,
-          loader: 'file',
-          query: {
+          loader: 'file-loader',
+          options: {
             name: 'assets/fonts/[hash:8].[ext]',
           },
           include: path,
