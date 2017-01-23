@@ -29,34 +29,34 @@ module.exports = function scssLoader(includePaths) {
           loader: extractCSS.extract({
             fallbackLoader: 'style-loader',
             loader: combineLoaders([
-                {
-                  loader: 'css-loader',
-                  query: {
-                    modules: 1,
-                    importLoaders: 3,
-                    localIdentName: getCssIdentName(),
-                    sourceMap: true,
-                  }
-                },
-                {
-                  loader: 'postcss-loader',
-                  // all other options should be set in postcss.config.js until ExtractTextPlugin
-                  // supports the new Webpack 2 api
-                  query: {
-                    parser: 'postcss-scss',
-                  },
-                },
-                {
-                  loader: 'resolve-url-loader'
-                },
-                {
-                  loader: 'sass-loader',
-                  query: {
-                    includePaths: includePaths,
-                    sourceMap: true,
-                  },
+              {
+                loader: 'css-loader',
+                query: {
+                  modules: 1,
+                  importLoaders: 3,
+                  localIdentName: getCssIdentName(),
+                  sourceMap: true,
                 }
-              ])
+              },
+              {
+                loader: 'postcss-loader',
+                // all other options should be set in postcss.config.js until ExtractTextPlugin
+                // supports the new Webpack 2 api
+                query: {
+                  parser: 'postcss-scss',
+                },
+              },
+              {
+                loader: 'resolve-url-loader'
+              },
+              {
+                loader: 'sass-loader',
+                query: {
+                  includePaths: includePaths,
+                  sourceMap: true,
+                },
+              }
+            ])
           }),
         },
       ],
