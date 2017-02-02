@@ -6,10 +6,12 @@ module.exports = function gifLoader(path, limit) {
       rules: [
         {
           test: /\.gif$/,
-          loader: 'url-loader',
-          options: {
-            limit: limit,
-            name: 'assets/images/[name].[hash:8].[ext]',
+          use: {
+            loader: 'url-loader',
+            options: {
+              limit: limit,
+              name: 'assets/images/[name].[hash:8].[ext]',
+            },
           },
           include: path,
         },

@@ -15,12 +15,14 @@ function getConfig(includePath, excludePath) {
           // Enable caching for improved performance during development
           // It uses default OS directory by default. If you need something
           // more custom, pass a path to it.  I.e. , babel?cacheDirectory=<path>
-          loader: 'babel-loader',
+          use: {
+            loader: 'babel-loader',
+            options: {
+              cacheDirectory: './.babel-cache',
+            },
+          },
           include: includePath,
           exclude: excludePath,
-          options: {
-            cacheDirectory: './.babel-cache',
-          },
         },
       ],
     },

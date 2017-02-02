@@ -7,9 +7,11 @@ module.exports = function ttfLoader(path) {
         // ttf files
         {
           test: /\.ttf$/,
-          loader: 'file-loader',
-          options: {
-            name: 'assets/fonts/[hash:8].[ext]',
+          use: {
+            loader: 'file-loader',
+            options: {
+              name: 'assets/fonts/[hash:8].[ext]',
+            },
           },
           include: path,
         },

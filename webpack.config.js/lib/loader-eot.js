@@ -7,9 +7,11 @@ module.exports = function eotLoader(path) {
         // eot files
         {
           test: /\.eot$/,
-          loader: 'file-loader',
-          options: {
-            name: 'assets/fonts/[name].[hash:8].[ext]',
+          use: {
+            loader: 'file-loader',
+            options: {
+              name: 'assets/fonts/[name].[hash:8].[ext]',
+            },
           },
           include: path,
         },
