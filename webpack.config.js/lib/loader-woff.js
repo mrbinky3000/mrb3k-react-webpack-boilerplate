@@ -8,7 +8,7 @@ module.exports = function woffLoader(path, limit) {
         {
           test: /\.woff2?$/,
           use: {
-            loader: 'url',
+            loader: 'url-loader',
             options: {
               // url loader will inline anything smaller than limit bytes below.
               // mimetype seems like an undocumented query option for url loader (check the code)

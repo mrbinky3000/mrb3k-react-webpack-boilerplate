@@ -6,10 +6,12 @@ module.exports = function pngLoader(path, limit) {
       rules: [
         {
           test: /\.png$/,
-          loader: 'url-loader',
-          options: {
-            limit: limit,
-            name: 'assets/images/[hash:8].[ext]',
+          use: {
+            loader: 'url-loader',
+            options: {
+              limit: limit,
+              name: 'assets/images/[hash:8].[ext]',
+            },
           },
           include: path,
         }

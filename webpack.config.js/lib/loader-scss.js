@@ -9,6 +9,8 @@ const extractCSS = new ExtractTextPlugin({
 });
 const getCssIdentName = require('../lib/cssIdentName.js');
 
+// THIS VERSION WORKED IN WEBPACK 1
+// -------------------------------------------------------------------------------------------------
 module.exports = function scssLoader(includePaths) {
   return ({
     resolve: {
@@ -66,3 +68,86 @@ module.exports = function scssLoader(includePaths) {
     ]
   });
 };
+
+
+// THIS SEVERLY CRIPPLED VERSION WORKS IN WEBPACK...  2 SO FAR...
+// -------------------------------------------------------------------------------------------------
+// module.exports = function scssLoader(includePaths) {
+//   return ({
+//     resolve: {
+//       extensions: ['.css', '.scss'],
+//     },
+//     module: {
+//       rules: [
+//         {
+//           test: /\.(css|scss)$/,
+//           include: includePaths,
+//           // the ExtractTextPlugin doesn't yet understand the new Webpack 2 loader [] syntax, so
+//           // I'm using combineLoaders() and the old "query" property instead of the new "options"
+//           // property to convert our objects into a loader string.  So, for example, combineLoaders
+//           // will convert the sass-loader object below into:
+//           // sass-loader?includePaths=...&sourceMap=1
+//           //
+//           // NOTE: keep an eye on ExtractTextPlugin.  When they fix this, we'll have to update.
+//           loader: [
+//             {
+//               loader: 'style-loader'
+//             },
+//             {
+//               loader: 'css-loader',
+//               options: {
+//                 modules: 1,
+//                 importLoaders: 3,
+//                 localIdentName: getCssIdentName(),
+//                 sourceMap: true,
+//               }
+//             },
+//           ],
+//         },
+//       ],
+//     },
+//   });
+// };
+
+
+// THIS BARE-BONES VERSION WORKS IF RESOLVE-URL-LOADER DOESN'T NEED TO RESOLVE A URL.
+// -------------------------------------------------------------------------------------------------
+// module.exports = function scssLoader(includePaths) {
+//   return ({
+//     resolve: {
+//       extensions: ['.css', '.scss'],
+//     },
+//     module: {
+//       rules: [
+//         {
+//           test: /\.(css|scss)$/,
+//           include: includePaths,
+//           use: [
+//             {
+//               loader: 'css-loader',
+//               options: {
+//                 modules: 1,
+//                 importLoaders: 3,
+//                 localIdentName: getCssIdentName(),
+//                 sourceMap: true,
+//               }
+//             },
+//             {
+//               loader: 'postcss-loader',
+//             },
+//             {
+//               loader: 'resolve-url-loader'
+//             },
+//             {
+//               loader: 'sass-loader',
+//               options: {
+//                 includePaths: includePaths,
+//                 sourceMap: true,
+//               },
+//             }
+//           ],
+//         },
+//       ],
+//     },
+//   });
+// };

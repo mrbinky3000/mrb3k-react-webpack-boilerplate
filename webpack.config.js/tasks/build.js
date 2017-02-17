@@ -1,6 +1,6 @@
 const PATHS = require('../lib/paths');
 const Clean = require('clean-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+// const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const webpack = require('webpack');
 const extractBundle = require('../lib/part-extract-bundle');
 const pkg = require('../../package.json');
@@ -24,8 +24,8 @@ const config = {
 
     // note: webpack.optimize.DedupePlugin() was removed from Webpack 2,
 
-    // output extracted CSS to a file
-    new ExtractTextPlugin('[name].[id].[hash:5].css'),
+    // // output extracted CSS to a file
+    // new ExtractTextPlugin('[name].[id].[hash:5].css'),
 
     // Setting DefinePlugin affects React library size!
     new webpack.DefinePlugin({

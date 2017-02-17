@@ -21,9 +21,9 @@ const common = {
   // https://github.com/josephsavona/valuable/issues/9
   // https://github.com/pugjs/pug-loader/issues/8#issuecomment-55568520
   // and others.
-  node: {
-    fs: "empty"
-  },
+  // node: {
+  //   fs: "empty"
+  // },
 
   entry: {
     app: path.join(PATHS.app, 'index.jsx'),
